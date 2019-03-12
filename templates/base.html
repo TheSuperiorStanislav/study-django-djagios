@@ -16,6 +16,10 @@
 </head>
 
 <body>
+    <ul>
+        <li><a href="{% url 'home'%}">Home</a></li>
+        <li><a href="{% url 'alerts'%}">Alerts</a></li>
+    </ul>
     {% block content %}
     {% endblock %}
 </body>

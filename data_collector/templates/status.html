@@ -17,7 +17,7 @@
     <tbody>
         {% for node_name, data_type_to_data_point_map in status_data_dict.items %}
             {% for data_type, data_point in data_type_to_data_point_map.items %}
-                <tr>
+                <tr {% if data_point.has_alert %}class ='has-alert'{% endif %}>
                     <td>{% if forloop.first %}{{ node_name }}{% endif %}</td>
                     <td>{{ data_type }}</td>
                     <td>{{ data_point.data_value }}</td>
@@ -27,4 +27,9 @@
         {% endfor %}
     </tbody>
 </table>
+<style type="text/css" media="all">
+    tr.has-alert {
+        color: red
+    }
+</style>
 {% endblock content %}
